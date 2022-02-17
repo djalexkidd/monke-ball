@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/Some Time Later.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Redkost Comic.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/PlayButton.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 240
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.576471, 0.576471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -446.5
+margin_top = 64.0
+margin_right = 446.5
+margin_bottom = 304.0
+custom_colors/font_color = Color( 1, 0, 0.960784, 1 )
+custom_colors/font_color_shadow = Color( 0.6, 0, 0.745098, 1 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 5
+custom_fonts/font = SubResource( 1 )
+text = "YOU WIN!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -191.0
+margin_top = 78.5
+margin_right = 191.0
+margin_bottom = 177.5
+custom_colors/font_color = Color( 0.521569, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0.937255, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "REPLAY!"
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]

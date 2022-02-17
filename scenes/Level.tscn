@@ -1,10 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/Steve.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/TactilePaving002_1K_NormalGL.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/textures/TactilePaving002_1K_Roughness.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/blocksLibrary.tres" type="MeshLibrary" id=4]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/hud_coin.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/Redkost Comic.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/fonts/Some Time Later.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://scripts/Counter.gd" type="Script" id=10]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -165,6 +170,14 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( -720, 0, 0 ), Vector3( -720, 0, -720 ), Vector3( 1620, 0, -720 ) ]
 }
 
+[sub_resource type="DynamicFont" id=11]
+size = 40
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 90
+font_data = ExtResource( 9 )
+
 [node name="Level" type="Spatial"]
 
 [node name="Box" type="RigidBody" parent="."]
@@ -235,5 +248,305 @@ anims/RESET = SubResource( 8 )
 anims/enemy1animation = SubResource( 9 )
 anims/enemy2animation = SubResource( 10 )
 
+[node name="Coins" type="Spatial" parent="."]
+
+[node name="coin1" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.352, 2, -10.2048 )
+
+[node name="coin2" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35196, 2, -10.0983 )
+
+[node name="coin3" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, 16.6943 )
+
+[node name="coin4" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, -16.3057 )
+
+[node name="coin6" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, 12.4875 )
+
+[node name="coin7" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, 8.48746 )
+
+[node name="coin8" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, 4.48746 )
+
+[node name="coin9" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, 0.487461 )
+
+[node name="coin10" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, -3.51254 )
+
+[node name="coin11" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, -7.51254 )
+
+[node name="coin12" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8386, 2, -11.5125 )
+
+[node name="coin13" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, 16.6943 )
+
+[node name="coin14" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, -16.3057 )
+
+[node name="coin15" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35196, 2, -10.2048 )
+
+[node name="coin16" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, 12.4875 )
+
+[node name="coin17" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, 8.48746 )
+
+[node name="coin18" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, 4.48746 )
+
+[node name="coin19" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, 0.487461 )
+
+[node name="coin20" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, -3.51254 )
+
+[node name="coin21" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, -7.51254 )
+
+[node name="coin22" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1614, 2, -11.5125 )
+
+[node name="coin23" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1614, 2, -16.3057 )
+
+[node name="coin24" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.16137, 2, -16.3057 )
+
+[node name="coin25" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16137, 2, -16.3057 )
+
+[node name="coin26" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.161369, 2, -16.3057 )
+
+[node name="coin27" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83863, 2, -16.3057 )
+
+[node name="coin28" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83863, 2, -16.3057 )
+
+[node name="coin29" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8386, 2, -16.3057 )
+
+[node name="coin30" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1614, 2, 0.694302 )
+
+[node name="coin31" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.16137, 2, 0.694302 )
+
+[node name="coin32" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16137, 2, 0.694302 )
+
+[node name="coin33" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64804, 2, -10.0983 )
+
+[node name="coin34" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83863, 2, 0.694302 )
+
+[node name="coin35" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83863, 2, 0.694302 )
+
+[node name="coin36" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8386, 2, 0.694302 )
+
+[node name="coin37" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.64804, 2, -10.0983 )
+
+[node name="coin38" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64804, 2, -10.0983 )
+
+[node name="coin39" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64804, 2, -6.09828 )
+
+[node name="coin40" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64804, 2, -2.09828 )
+
+[node name="coin41" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 8 )
+
+[node name="coin42" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 12 )
+
+[node name="coin43" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 16 )
+
+[node name="coin44" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 16 )
+
+[node name="coin45" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 16 )
+
+[node name="coin46" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 16 )
+
+[node name="coin47" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 16 )
+
+[node name="coin48" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 12 )
+
+[node name="coin49" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 8 )
+
+[node name="coin50" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8 )
+
+[node name="coin51" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5 )
+
+[node name="coin52" parent="Coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 12 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 1040, 64 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 1096.0
+margin_top = 40.0
+margin_right = 1125.0
+margin_bottom = 83.0
+custom_colors/font_color = Color( 1, 0.780392, 0.262745, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Counter" type="Label" parent="Control"]
+margin_left = 1128.0
+margin_top = 24.0
+margin_right = 1272.0
+margin_bottom = 114.0
+custom_colors/font_color = Color( 1, 0.780392, 0.262745, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "A"
+align = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Control/Counter"]
+
 [connection signal="body_entered" from="enemy1" to="Steve" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemy2" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Coins/coin1" to="Coins/coin1" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin1" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin2" to="Coins/coin2" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin2" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin3" to="Coins/coin3" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin3" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin4" to="Coins/coin4" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin4" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin6" to="Coins/coin6" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin6" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin7" to="Coins/coin7" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin7" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin8" to="Coins/coin8" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin8" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin9" to="Coins/coin9" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin9" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin10" to="Coins/coin10" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin10" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin11" to="Coins/coin11" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin11" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin12" to="Coins/coin12" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin12" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin13" to="Coins/coin13" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin13" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin14" to="Coins/coin14" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin14" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin15" to="Coins/coin15" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin15" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin16" to="Coins/coin16" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin16" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin17" to="Coins/coin17" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin17" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin18" to="Coins/coin18" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin18" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin19" to="Coins/coin19" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin19" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin20" to="Coins/coin20" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin20" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin21" to="Coins/coin21" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin21" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin22" to="Coins/coin22" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin22" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin23" to="Coins/coin23" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin23" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin24" to="Coins/coin24" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin24" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin25" to="Coins/coin25" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin25" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin26" to="Coins/coin26" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin26" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin27" to="Coins/coin27" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin27" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin28" to="Coins/coin28" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin28" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin29" to="Coins/coin29" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin29" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin30" to="Coins/coin30" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin30" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin31" to="Coins/coin31" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin31" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin32" to="Coins/coin32" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin32" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin33" to="Coins/coin33" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin33" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin34" to="Coins/coin34" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin34" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin35" to="Coins/coin35" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin35" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin36" to="Coins/coin36" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin36" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin37" to="Coins/coin37" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin37" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin38" to="Coins/coin38" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin38" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin39" to="Coins/coin39" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin39" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin40" to="Coins/coin40" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin40" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin41" to="Coins/coin41" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin41" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin42" to="Coins/coin42" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin42" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin43" to="Coins/coin43" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin43" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin44" to="Coins/coin44" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin44" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin45" to="Coins/coin45" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin45" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin46" to="Coins/coin46" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin46" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin47" to="Coins/coin47" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin47" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin48" to="Coins/coin48" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin48" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin49" to="Coins/coin49" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin49" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin50" to="Coins/coin50" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin50" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin51" to="Coins/coin51" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin51" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="body_entered" from="Coins/coin52" to="Coins/coin52" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coin52" to="Control/Counter" method="_on_coin1_coinCollected"]
+[connection signal="timeout" from="Control/Counter/Timer" to="Control/Counter" method="_on_Timer_timeout"]
