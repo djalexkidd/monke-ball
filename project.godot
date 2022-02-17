@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Godot 3D"
-run/main_scene="res://scenes/Level.tscn"
+config/name="Monke Ball"
+run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
 
 [display]
