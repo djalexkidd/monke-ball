@@ -148,10 +148,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.5, 5, 6.5, 8, 9, 9.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2.5, 5, 6.5, 8, 9, 9.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -16, 2, 15 ), Vector3( -16, 2, -16 ), Vector3( 16, 2, -16 ), Vector3( 16, 2, 16 ), Vector3( -9.42474, 2, 14.0464 ), Vector3( -10.7101, 2, 7.17598 ), Vector3( -16.1122, 2, 7.31809 ) ]
+"values": [ Vector3( -16, 2, 17 ), Vector3( -16, 2, -16 ), Vector3( 16, 2, -16 ), Vector3( 16, 2, 16 ), Vector3( -9.42474, 2, 14.0464 ), Vector3( -10.7101, 2, 7.17598 ), Vector3( -16.1122, 2, 7.31809 ), Vector3( -16, 2, 17 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
